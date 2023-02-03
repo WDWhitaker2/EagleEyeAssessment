@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="metadata.csv" />
+    <None Remove="moviemetadata.csv" />
+    <None Remove="stats.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="moviemetadata.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stats.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="metadata.csv" />
+  </ItemGroup>
+
+</Project>

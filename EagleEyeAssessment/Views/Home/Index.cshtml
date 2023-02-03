@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Wesley Daniel Whitaker</h1>
+    <div><b>Officer:</b> That's got to be the best developer I've ever seen.</div>
+    <div><b>Norrington:</b> ... So it would seem.</div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">/Metadata</h2>
+    </div>
+    <div class="card-body">
+        <form id="metadatapost" method="post" action="/Metadata">
+            <div class="form-group">
+                <input class="form-control" placeholder="movieId" name="movieId" required />
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="title" name="title" required />
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="language" name="language" required />
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="duration" name="duration" required />
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="releaseYear" name="releaseYear" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Submit Metadata</button>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">/Metadata:id</h2>
+    </div>
+    <div class="card-body">
+        <form onsubmit="ApiHelper.GetMetaDataFromId(); return false;">
+
+            <div class="form-group">
+                <input class="form-control" id="matadatagetid" name="id" required />
+            </div>
+            <button class="btn btn-primary" type="submit">Get Metadata</button>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">/movies/stats</h2>
+    </div>
+    <div class="card-body">
+        <a class="btn btn-primary" href="/movies/stats">Get Stats</a>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var ApiHelper = (function () {
+            var GetMetaDataFromId = function () {
+                var url = "/metadata/" + $("#matadatagetid").val();
+
+                window.location.href = url;
+            }
+
+
+
+            return {
+                GetMetaDataFromId
+            }
+        })();
+    </script>
+}
